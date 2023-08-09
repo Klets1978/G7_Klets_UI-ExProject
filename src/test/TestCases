@@ -1,0 +1,88 @@
+001 Checking the functionality of the Login form
+Preconditions:
+1. Go to the https://demoqa.com/login page
+2. Verify Valid Credentials for the "Login" form:
+- an existing user in the system (KNtest)
+- a valid value for the "Password" field (Kzueirf_rdfreirf559%)
+STR:
+1. Find the "userForm" form
+2. Fill in the form with a valid value
+3. Click on the submit button
+ER:
+1. The user is logged in successfully
+2. The "Profile" page is opened (https://demoqa.com/profile)
+3. The "Profile" page contains the "Profile" header
+4. The User Name is displayed correctly
+5. The "Profile" page contains the "Log out" button
+6. The "Profile" item is displayed in the left side menu list as active
+7. The "Search" input field is displayed on the page
+8. The "Go To Book Store" button is displayed on the page
+7. The "UserForm" form is not displayed on the page
+
+TC002 Checking the functionality of the Log out button
+Preconditions:
+1. An existing user is logged in successfully
+2. The "Profile" page is opened (https://demoqa.com/profile)
+STR:
+1. Click on the submit button on the top right corner of the page
+ER:
+1. The user is logged out successfully
+2. The "Login" page is opened (https://demoqa.com/login)
+3. The "Login" page contains the "Login" header
+4. The "Login" page contains the "Login" button
+5. The "Login" item is displayed in the left side menu list as active
+6. The "UserForm" form is displayed on the page
+7. The "Profile" header is not displayed on the page
+8. The "Log out" button is not displayed on the page
+
+TC003 Checking the functionality of redirection to the "Book Store" page
+Preconditions:
+1. An existing user is logged in successfully (userName = KNtest, password = Kzueirf_rdfreirf559%)
+2. The "Profile" page is opened (https://demoqa.com/profile)
+STR:
+1. Click on the "Go to Book Store" button
+ER:
+1. The "Book Store" page is opened (https://demoqa.com/books)
+2. The "Book Store" page contains the "Book Store" header
+3. The "Book Store" page contains the "list of the books" table
+4. The "Go To Book Store" button is not displayed on the page
+5. The "Delete All Books" button is not displayed on the page
+
+TC004 Checking the functionality selecting item from the store
+Preconditions:
+1. An existing user login into the system successfully (userName = KNtest, password = Kzueirf_rdfreirf559%)
+2. The "Book Store" page was opened by clicking on the "Go To Book Store" button on the "Profile" page (https://demoqa.com/books)
+STR:
+1. Find the item on the "List of the books" table
+2. Click on the link of the "Title" of the item
+ER:
+1. The system shows the details of the selected item with next elements:
+- ISBN number
+- Title
+- Sub Title
+- Author
+- Publisher
+- Total Pages
+- Description
+- Website with clickable link
+- "Back To Book Store" button
+- "Add To Your Collection" button
+
+TC005 Checking the functionality of the adding item to the collection
+Preconditions:
+1. An existing user login into the system successfully (userName = KNtest, password = Kzueirf_rdfreirf559%)
+2. The "Book Store" page was opened by clicking on the "Go To Book Store" button on the "Profile" page (https://demoqa.com/books)
+3. The details of the selected book was opened by clicking on the link of the "Title" of the item
+STR:
+1. Click on the "Add To Your Collection" button
+ER:
+1. The system shows the "Book added to your collection." message with OK button
+2. The system closes the message by clicking on the OK button
+3. The item is added successfully to the "Your Collection" list on the "Profile" page
+Post-conditions:
+1. Check the correspondent item was added successfully in the "Your Collection" list on the "Profile" page
+1. Delete the item from the "Your Collection" list on the "Profile" page
+
+
+
+

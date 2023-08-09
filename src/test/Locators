@@ -1,0 +1,44 @@
+#login-form
+Login.userForm = //form
+Login.input.userName = //input[@id='userName']
+Login.input.password = //input[@id='password']
+Login.button.login = //button[@id='login']
+Login.element.loginForm = //div[@class="login-form"]
+//li[@class='btn btn-light active' and @id="item-0"]
+
+#Profile
+Profile.header = //div[@class="pattern-backgound playgound-header"]
+Profile.label.userName = //label[@id='userName-value']
+Profile.button.Logout = //button[@id='submit' and text()='Log out']
+Profile.element.Profile = //li[@class='btn btn-light active' and @id="item-3"]
+Profile.input.searchBox = //div[@class='mb-3 input-group']//input[@id='searchBox']
+Profile.button.Search = //div[@class='mb-3 input-group']//div[@class='input-group-append']
+Profile.table.bookList = //div[@class='profile-wrapper']//div[@class='ReactTable -striped -highlight']
+Profile.button.GoToBookStore = //button[@id='gotoStore']
+Profile.button.DeleteAccount = //button[@id='submit' and text()='Delete Account']
+Profile.button.DeleteAllBooks = //div[@class='text-right button di']//button[@id='submit' and text()='Delete All Books']
+
+#Book Store
+BookStore.input.searchBox = //input[@id='searchBox']
+BookStore.button.Search = //div[@class='input-group-append']
+BookStore.header = //div[@class='pattern-backgound playgound-header']
+BookStore.element.BookStore = //li[@class='btn btn-light active' and @id="item-2"]
+BookStore.table.bookList = //div[@class='ReactTable -striped -highlight']
+BookStore.link.TitleBook = //span[@id='see-book-Git Pocket Guide']//a
+
+#Book Details
+BookDetails.label.ISBN = //div[@id='ISBN-wrapper']//label[@class='form-label' and @id='userName-value']
+BookDetails.label.Title = //div[@id='title-wrapper']//label[@class="form-label" and @id="userName-value"]
+BookDetails.label.SubTitle = //div[@id='subtitle-wrapper']//label[@class="form-label" and @id="userName-value"]
+BookDetails.label.Author = //div[@id='author-wrapper']//label[@class="form-label" and @id="userName-value"]
+BookDetails.label.Publisher = //div[@id='publisher-wrapper']//label[@class="form-label" and @id="userName-value"]
+BookDetails.label.TotalPages = //div[@id='pages-wrapper']//label[@class="form-label" and @id="userName-value"]
+BookDetails.label.Description = //div[@id='description-wrapper']//label[@class="form-label" and @id="userName-value"]
+BookDetails.label.Website = //div[@id='website-wrapper']//label[@class="form-label" and @id="userName-value"]
+BookDetails.label.LinkOnTheWebsite = //div[@id="website-wrapper"]//label[@class="form-label" and @id="userName-value"]
+BookDetails.button.backToBookStore = //button[@id='addNewRecordButton' and text()='Back To Book Store']
+BookDetails.button.addToCollection = //button[@id='addNewRecordButton' and text()='Add To Your Collection']
+
+
+
+
