@@ -1,9 +1,12 @@
 #login-form
+
+Login.header = //div[@class='pattern-backgound playgound-header']
 Login.userForm = //form
 Login.input.userName = //input[@id='userName']
 Login.input.password = //input[@id='password']
 Login.button.login = //button[@id='login']
 Login.element.loginForm = //div[@class="login-form"]
+Login.element.errorMessage = //p[@id="name" and text()='Invalid username or password!']
 //li[@class='btn btn-light active' and @id="item-0"]
 
 #Profile

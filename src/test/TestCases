@@ -17,7 +17,7 @@ ER:
 6. The "Profile" item is displayed in the left side menu list as active
 7. The "Search" input field is displayed on the page
 8. The "Go To Book Store" button is displayed on the page
-7. The "UserForm" form is not displayed on the page
+7. The "Login" button is not displayed on the page
 
 TC002 Checking the functionality of the Log out button
 Preconditions:
@@ -31,7 +31,8 @@ ER:
 3. The "Login" page contains the "Login" header
 4. The "Login" page contains the "Login" button
 5. The "Login" item is displayed in the left side menu list as active
-6. The "UserForm" form is displayed on the page
+6. The "UserName" input field is displayed on the page
+7. The "Password" input field is displayed on the page
 7. The "Profile" header is not displayed on the page
 8. The "Log out" button is not displayed on the page
 
