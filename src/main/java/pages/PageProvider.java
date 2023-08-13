@@ -17,4 +17,10 @@ public class PageProvider {
         return new ProfilePage(webDriver);
     }
 
+    public BookStorePage getBookStorePage() { return new BookStorePage(webDriver);
+    }
+
+    public BookDetailPage getBookDetailPage() {
+        return new BookDetailPage(webDriver);
+    }
 }

@@ -6,34 +6,34 @@ import org.openqa.selenium.support.FindBy;
 
 public class ProfilePage extends ParentPage {
 
-    @FindBy (xpath = "//div[@class=\"pattern-backgound playgound-header\"]")
+    @FindBy(xpath = "//div[@class=\"pattern-backgound playgound-header\"]")
     private WebElement profileHeader;
 
-    @FindBy (xpath = "//label[@id='userName-value']")
+    @FindBy(xpath = "//label[@id='userName-value']")
     private WebElement userName;
 
-    @FindBy (xpath = "//button[@id='submit' and text()='Log out']")
+    @FindBy(xpath = "//button[@id='submit' and text()='Log out']")
     private WebElement buttonLogOut;
 
-    @FindBy (xpath = "//li[@class='btn btn-light active' and @id=\"item-3\"]")
+    @FindBy(xpath = "//li[@class='btn btn-light active' and @id=\"item-3\"]")
     private WebElement elementProfile;
 
-    @FindBy (xpath = "//div[@class='mb-3 input-group']//input[@id='searchBox']")
+    @FindBy(xpath = "//div[@class='mb-3 input-group']//input[@id='searchBox']")
     private WebElement inputSearch;
 
-    @FindBy (xpath = "//div[@class='mb-3 input-group']//div[@class='input-group-append']")
+    @FindBy(xpath = "//div[@class='mb-3 input-group']//div[@class='input-group-append']")
     private WebElement buttonSearch;
 
-    @FindBy (xpath = "//div[@class='profile-wrapper']//div[@class='ReactTable -striped -highlight']")
+    @FindBy(xpath = "//div[@class='profile-wrapper']//div[@class='ReactTable -striped -highlight']")
     private WebElement tableBookList;
 
-    @FindBy (xpath = "//button[@id='gotoStore']")
+    @FindBy(xpath = "//button[@id='gotoStore']")
     private WebElement buttonGoToStore;
 
-    @FindBy (xpath = "//button[@id='submit' and text()='Delete Account']")
+    @FindBy(xpath = "//button[@id='submit' and text()='Delete Account']")
     private WebElement buttonDeleteAccount;
 
-    @FindBy (xpath = "//div[@class='text-right button di']//button[@id='submit' and text()='Delete All Books']")
+    @FindBy(xpath = "//div[@class='text-right button di']//button[@id='submit' and text()='Delete All Books']")
     private WebElement buttonDeleteAllBooks;
 
 
@@ -85,10 +85,41 @@ public class ProfilePage extends ParentPage {
         clickOnElement(buttonLogOut);
     }
 
-    public boolean isButtonLogOutVisible() {
-        return isElementDisplayed(buttonLogOut);
+    public void checkIsButtonLogOutNotVisible() {
+        checkIsElementNotVisible(buttonLogOut);
+    }
+
+    private void checkIsElementNotVisible(WebElement buttonLogOut) {
+        checkIsElementNotDisplayed(buttonLogOut);
+    }
+
+    public void checkIsElementProfileNotVisible() {
+        checkIsElementNotDisplayed(elementProfile);
     }
 
 
-}
+    public void checkIsInputSearchNotVisible() {
+        checkIsElementNotDisplayed(inputSearch);
+    }
 
+    public void checkIsTableBookListNotVisible() {
+        checkIsElementNotDisplayed(tableBookList);
+    }
+
+
+    public void checkIsButtonGoToStoreNotVisible() {
+        checkIsElementNotDisplayed(buttonGoToStore);
+    }
+
+    public void checkIsButtonDeleteAccountNotVisible() {
+        checkIsElementNotDisplayed(buttonDeleteAccount);
+    }
+
+    public void checkIsButtonDeleteAllBooksNotVisible() {
+        checkIsElementNotDisplayed(buttonDeleteAllBooks);
+    }
+
+    public void clickOnButtonGoToStore() {
+        clickOnElement(buttonGoToStore);
+    }
+}

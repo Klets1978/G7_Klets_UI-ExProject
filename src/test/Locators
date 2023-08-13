@@ -26,7 +26,7 @@ BookStore.input.searchBox = //input[@id='searchBox']
 BookStore.button.Search = //div[@class='input-group-append']
 BookStore.header = //div[@class='pattern-backgound playgound-header']
 BookStore.element.BookStore = //li[@class='btn btn-light active' and @id="item-2"]
-BookStore.table.bookList = //div[@class='ReactTable -striped -highlight']
+BookStore.table.bookList = //div[@class="ReactTable -striped -highlight"]//div[@class="rt-tbody"]
 BookStore.link.TitleBook = //span[@id='see-book-Git Pocket Guide']//a
 
 #Book Details
@@ -41,6 +41,10 @@ BookDetails.label.Website = //div[@id='website-wrapper']//label[@class="form-lab
 BookDetails.label.LinkOnTheWebsite = //div[@id="website-wrapper"]//label[@class="form-label" and @id="userName-value"]
 BookDetails.button.backToBookStore = //button[@id='addNewRecordButton' and text()='Back To Book Store']
 BookDetails.button.addToCollection = //button[@id='addNewRecordButton' and text()='Add To Your Collection']
+
+#Modal Element need to check!
+Modal.element.modal = //div[@class="modal-content"]
+Modal.button.OK = //button[@id="closeSmallModal" and text()='OK ']
 
 
 

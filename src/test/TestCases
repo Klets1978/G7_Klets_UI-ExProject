@@ -36,7 +36,7 @@ ER:
 7. The "Profile" header is not displayed on the page
 8. The "Log out" button is not displayed on the page
 
-TC003 Checking the functionality of redirection to the "Book Store" page
+TC003 Checking the functionality of redirection to the "Book Store" page from the "Profile" page
 Preconditions:
 1. An existing user is logged in successfully (userName = KNtest, password = Kzueirf_rdfreirf559%)
 2. The "Profile" page is opened (https://demoqa.com/profile)
@@ -46,10 +46,11 @@ ER:
 1. The "Book Store" page is opened (https://demoqa.com/books)
 2. The "Book Store" page contains the "Book Store" header
 3. The "Book Store" page contains the "list of the books" table
-4. The "Go To Book Store" button is not displayed on the page
-5. The "Delete All Books" button is not displayed on the page
+4. The "Book Store" item is displayed in the left side menu list as active
+5. The "Go To Book Store" button is not displayed on the page
+6. The "Delete All Books" button is not displayed on the page
 
-TC004 Checking the functionality selecting item from the store
+TC004 Checking the functionality redirection to the corresponding details page from the "Book Store" page
 Preconditions:
 1. An existing user login into the system successfully (userName = KNtest, password = Kzueirf_rdfreirf559%)
 2. The "Book Store" page was opened by clicking on the "Go To Book Store" button on the "Profile" page (https://demoqa.com/books)
@@ -68,6 +69,7 @@ ER:
 - Website with clickable link
 - "Back To Book Store" button
 - "Add To Your Collection" button
+2. The "list of the books" table is not displayed on the page
 
 TC005 Checking the functionality of the adding item to the collection
 Preconditions:

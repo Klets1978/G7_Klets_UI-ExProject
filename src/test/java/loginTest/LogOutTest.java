@@ -2,12 +2,13 @@ package loginTest;
 
 import org.junit.Test;
 
-import static data.TestData.*;
+import static data.TestData.LOGIN_DEFAULT;
+import static data.TestData.PASSWORD_DEFAULT;
 
-public class LoginTestWithPageObject extends baseTest.BaseTest {
+public class LogOutTest extends baseTest.BaseTest {
 
     @Test
-    public void validLogin() {
+    public void logOut() {
         pageProvider.getLoginPage().openLoginPage();
         pageProvider.getLoginPage().enterTextIntoInputUsername(LOGIN_DEFAULT);
         pageProvider.getLoginPage().enterTextIntoInputPassword(PASSWORD_DEFAULT);
@@ -21,19 +22,9 @@ public class LoginTestWithPageObject extends baseTest.BaseTest {
         pageProvider.getProfilePage().checkIsButtonDeleteAccountVisible();
         pageProvider.getProfilePage().checkIsButtonDeleteAllBooksVisible();
 
-        pageProvider.getLoginPage().checkIsButtonSignInNotVisible();
+        pageProvider.getProfilePage().clickOnButtonLogOut();
 
-    }
-
-    @Test
-    public void invalidLogin() {
-        pageProvider.getLoginPage().openLoginPage();
-        pageProvider.getLoginPage().enterTextIntoInputUsername(LOGIN_INVALID);
-        pageProvider.getLoginPage().enterTextIntoInputPassword(PASSWORD_DEFAULT);
-        pageProvider.getLoginPage().clickOnButtonSignIn();
-
-        pageProvider.getLoginPage().checkIsErrorMessageDisplayed();
-        pageProvider.getLoginPage().checkSignInButtonDisplayed();
+        pageProvider.getLoginPage().checkIsButtonSignInVisible();
 
         pageProvider.getProfilePage().checkIsButtonLogOutNotVisible();
         pageProvider.getProfilePage().checkIsElementProfileNotVisible();
@@ -42,6 +33,5 @@ public class LoginTestWithPageObject extends baseTest.BaseTest {
         pageProvider.getProfilePage().checkIsButtonGoToStoreNotVisible();
         pageProvider.getProfilePage().checkIsButtonDeleteAccountNotVisible();
         pageProvider.getProfilePage().checkIsButtonDeleteAllBooksNotVisible();
-
     }
 }
