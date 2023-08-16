@@ -20,6 +20,7 @@ Profile.table.bookList = //div[@class='profile-wrapper']//div[@class='ReactTable
 Profile.button.GoToBookStore = //button[@id='gotoStore']
 Profile.button.DeleteAccount = //button[@id='submit' and text()='Delete Account']
 Profile.button.DeleteAllBooks = //div[@class='text-right button di']//button[@id='submit' and text()='Delete All Books']
+Profile.button.DeleteBook = //div//span[@id="delete-record-undefined"]
 
 #Book Store
 BookStore.input.searchBox = //input[@id='searchBox']
@@ -42,9 +43,6 @@ BookDetails.label.LinkOnTheWebsite = //div[@id="website-wrapper"]//label[@class=
 BookDetails.button.backToBookStore = //button[@id='addNewRecordButton' and text()='Back To Book Store']
 BookDetails.button.addToCollection = //button[@id='addNewRecordButton' and text()='Add To Your Collection']
 
-#Modal Element need to check!
-Modal.element.modal = //div[@class="modal-content"]
-Modal.button.OK = //button[@id="closeSmallModal" and text()='OK ']
 
 
 

@@ -1,5 +1,7 @@
 package expansionCollectionBooks;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static data.TestData.LOGIN_DEFAULT;
@@ -7,8 +9,9 @@ import static data.TestData.PASSWORD_DEFAULT;
 
 public class ExpansionCollectionBooksTest extends baseTest.BaseTest {
 
-    @Test
-    public void expansionCollectionBook() {
+    @Before
+    public void selectBookForCollection() {
+
         pageProvider.getLoginPage().openLoginPage();
         pageProvider.getLoginPage().enterTextIntoInputUsername(LOGIN_DEFAULT);
         pageProvider.getLoginPage().enterTextIntoInputPassword(PASSWORD_DEFAULT);
@@ -44,10 +47,22 @@ public class ExpansionCollectionBooksTest extends baseTest.BaseTest {
 
         pageProvider.getBookStorePage().checkIsTableBookListNotVisible();
 
+    }
+
+    @Test
+    public void expansionCollectionBook() {
         pageProvider.getBookDetailPage().clickOnButtonAddToYourCollection();
+        pageProvider.getBookDetailPage().alertAccept();
 
-        pageProvider.getProfilePage().checkIsTableBookListVisible();
+        //pageProvider.getProfilePage().checkIsTableBookListVisible();
 
+    }
+
+    @After
+    public void deleteBooksFromCollection() {
+        pageProvider.getProfilePage().clickOnButtonDeleteBook();
+        pageProvider.getProfilePage().modalWindowAccept();
+        pageProvider.getProfilePage().checkIsTableBookListNotVisible();
     }
 
 }

@@ -1,8 +1,9 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+
+import java.time.Duration;
 
 public class BookDetailPage extends ParentPage {
     public BookDetailPage(WebDriver webDriver) {
@@ -90,8 +91,20 @@ public class BookDetailPage extends ParentPage {
         clickOnElement(buttonBackToBookStore);
     }
 
+
     public void clickOnButtonAddToYourCollection() {
-        clickOnElement(buttonAddToYourCollection);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        hoverOnElement(buttonAddToYourCollection);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        clickOnElementByJS(buttonAddToYourCollection);  //click on button by JS
     }
 
 }

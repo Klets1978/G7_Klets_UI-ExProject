@@ -2,8 +2,8 @@ package pages;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -60,11 +60,43 @@ public class ActionsWithElements {
         Assert.assertFalse("Element is displayed", isElementDisplayed(element));
     }
 
+    public void hoverOnElement(WebElement element) {
+        try {
+            Actions action = new Actions(webDriver);
+            action.moveToElement(element).build().perform();
+            logger.info("Element was hovered");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void clickOnElementByJS(WebElement element) {
+        try {
+            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
+            javascriptExecutor.executeScript("arguments[0].click();", element);
+            logger.info("Element was clicked");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void alertAccept() {
+        Alert alert = webDriver.switchTo().alert();
+        String alertText = alert.getText();
+        logger.info(alertText);
+        alert.accept();
+        webDriver.quit();
+    }
+
     private void printErrorAndStopTest(Exception e) {
         logger.info("Can not work with element " + e);
         Assert.fail("Can not work with element " + e);
     }
 
+
+    public void modalWindowAccept() {
+
+    }
 }
 
 

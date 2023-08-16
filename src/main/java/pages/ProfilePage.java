@@ -122,4 +122,8 @@ public class ProfilePage extends ParentPage {
     public void clickOnButtonGoToStore() {
         clickOnElement(buttonGoToStore);
     }
+
+    public void clickOnButtonDeleteBook() {
+        clickOnElement(buttonDeleteAllBooks);
+    }
 }
