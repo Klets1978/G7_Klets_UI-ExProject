@@ -126,4 +126,17 @@ public class ProfilePage extends ParentPage {
     public void clickOnButtonDeleteBook() {
         clickOnElement(buttonDeleteAllBooks);
     }
+
+    public void checkIsElementsDisplayOnProfilePage() {
+        checkIsProfileHeaderVisible();
+        checkIsUserNameVisible();
+        checkIsButtonLogOutVisible();
+        checkIsElementProfileVisible();
+        checkIsInputSearchVisible();
+        checkIsButtonSearchVisible();
+        checkIsTableBookListVisible();
+        checkIsButtonGoToStoreVisible();
+        checkIsButtonDeleteAccountVisible();
+        checkIsButtonDeleteAllBooksVisible();
+    }
 }

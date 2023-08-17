@@ -107,4 +107,18 @@ public class BookDetailPage extends ParentPage {
         clickOnElementByJS(buttonAddToYourCollection);  //click on button by JS
     }
 
+    public void checkIsElementBookDetailPageVisible() {
+        checkIsElementDisplayed(bookISBN);
+        checkIsElementDisplayed(bookTitle);
+        checkIsElementDisplayed(bookSubtitle);
+        checkIsElementDisplayed(bookAuthor);
+        checkIsElementDisplayed(bookPublisher);
+        checkIsElementDisplayed(bookPages);
+        checkIsElementDisplayed(bookDescription);
+        checkIsElementDisplayed(bookWebsite);
+        checkIsElementDisplayed(bookWebsiteLink);
+        checkIsElementDisplayed(buttonBackToBookStore);
+        checkIsElementDisplayed(buttonAddToYourCollection);
+    }
+
 }

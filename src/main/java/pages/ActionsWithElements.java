@@ -1,10 +1,15 @@
 package pages;
 
+import libs.ConfigProvider;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 public class ActionsWithElements {
@@ -12,16 +17,20 @@ public class ActionsWithElements {
     Logger logger = Logger.getLogger(getClass());
     protected WebDriver webDriver;
 
+    protected WebDriverWait webDriverWait10, webDriverWait15;
+
     public ActionsWithElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
+        webDriverWait10 = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        webDriverWait15 = new WebDriverWait(webDriver, Duration.ofSeconds(ConfigProvider.configProperties.TIME_FOR_EXPLICIT_WAIT_LOW()));
     }
 
     public void enterTextIntoInput(WebElement input, String text) {
         try {
             input.clear();
             input.sendKeys(text);
-            logger.info(text + " was inputted");
+            logger.info(text + " was inputted into " + getElementName(input));
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
@@ -30,6 +39,8 @@ public class ActionsWithElements {
 
     public void clickOnElement(WebElement element) {
         try {
+            String elementName = getElementName(element);
+            webDriverWait10.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
@@ -88,15 +99,23 @@ public class ActionsWithElements {
         webDriver.quit();
     }
 
+    private String getElementName(WebElement element) {
+        try {
+            return element.getAccessibleName();
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
     private void printErrorAndStopTest(Exception e) {
         logger.info("Can not work with element " + e);
         Assert.fail("Can not work with element " + e);
     }
 
 
-    public void modalWindowAccept() {
-
-    }
+//    public void modalWindowAccept() {
+//
+//    }
 }
 
 

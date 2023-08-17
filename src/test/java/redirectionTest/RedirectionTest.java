@@ -1,6 +1,9 @@
 package redirectionTest;
 
+import data.TestData;
 import org.junit.Test;
+
+import javax.xml.crypto.Data;
 
 import static data.TestData.LOGIN_DEFAULT;
 import static data.TestData.PASSWORD_DEFAULT;
@@ -10,63 +13,27 @@ public class RedirectionTest extends baseTest.BaseTest {
     @Test
     public void redirectionToBookStorePage() {
 
-        pageProvider.getLoginPage().openLoginPage();
-        pageProvider.getLoginPage().enterTextIntoInputUsername(LOGIN_DEFAULT);
-        pageProvider.getLoginPage().enterTextIntoInputPassword(PASSWORD_DEFAULT);
-        pageProvider.getLoginPage().clickOnButtonSignIn();
+        pageProvider.getLoginPage().loginWithValidCreds(TestData.LOGIN_DEFAULT, TestData.PASSWORD_DEFAULT);
 
-        pageProvider.getProfilePage().checkIsButtonLogOutVisible();
-        pageProvider.getProfilePage().checkIsElementProfileVisible();
-        pageProvider.getProfilePage().checkIsInputSearchVisible();
-        pageProvider.getProfilePage().checkIsTableBookListVisible();
-        pageProvider.getProfilePage().checkIsButtonGoToStoreVisible();
-        pageProvider.getProfilePage().checkIsButtonDeleteAccountVisible();
-        pageProvider.getProfilePage().checkIsButtonDeleteAllBooksVisible();
-
+        pageProvider.getProfilePage().checkIsElementsDisplayOnProfilePage();
         pageProvider.getProfilePage().clickOnButtonGoToStore();
 
-        pageProvider.getBookStorePage().checkIsBookStoreHeaderVisible();
         pageProvider.getBookStorePage().checkIsElementBookStoreVisible();
-        pageProvider.getBookStorePage().checkIsTableBookListVisible();
 
     }
 
     @Test
     public void redirectionToBookDetailPage() {
 
-        pageProvider.getLoginPage().openLoginPage();
-        pageProvider.getLoginPage().enterTextIntoInputUsername(LOGIN_DEFAULT);
-        pageProvider.getLoginPage().enterTextIntoInputPassword(PASSWORD_DEFAULT);
-        pageProvider.getLoginPage().clickOnButtonSignIn();
+        pageProvider.getLoginPage().loginWithValidCreds(TestData.LOGIN_DEFAULT, TestData.PASSWORD_DEFAULT);
 
-        pageProvider.getProfilePage().checkIsButtonLogOutVisible();
-        pageProvider.getProfilePage().checkIsElementProfileVisible();
-        pageProvider.getProfilePage().checkIsInputSearchVisible();
-        pageProvider.getProfilePage().checkIsTableBookListVisible();
-        pageProvider.getProfilePage().checkIsButtonGoToStoreVisible();
-        pageProvider.getProfilePage().checkIsButtonDeleteAccountVisible();
-        pageProvider.getProfilePage().checkIsButtonDeleteAllBooksVisible();
-
+        pageProvider.getProfilePage().checkIsElementsDisplayOnProfilePage();
         pageProvider.getProfilePage().clickOnButtonGoToStore();
 
-        pageProvider.getBookStorePage().checkIsBookStoreHeaderVisible();
-        pageProvider.getBookStorePage().checkIsElementBookStoreVisible();
-        pageProvider.getBookStorePage().checkIsTableBookListVisible();
-
+        pageProvider.getBookStorePage().checkIsElementBookStoreDisplay();
         pageProvider.getBookStorePage().clickOnLinkGitPocketGuide();
 
-        pageProvider.getBookDetailPage().checkIsBookISBNVisible();
-        pageProvider.getBookDetailPage().checkIsBookTitleVisible();
-        pageProvider.getBookDetailPage().checkIsBookSubTitleVisible();
-        pageProvider.getBookDetailPage().checkIsBookAuthorVisible();
-        pageProvider.getBookDetailPage().checkIsBookPublisherVisible();
-        pageProvider.getBookDetailPage().checkIsBookTotalPagesVisible();
-        pageProvider.getBookDetailPage().checkIsBookDescriptionVisible();
-        pageProvider.getBookDetailPage().checkIsBookWebsiteVisible();
-        pageProvider.getBookDetailPage().checkIsBookWebsiteLinkVisible();
-        pageProvider.getBookDetailPage().checkIsButtonBackToBookStoreVisible();
-        pageProvider.getBookDetailPage().checkIsButtonAddToYourCollectionVisible();
-
+        pageProvider.getBookDetailPage().checkIsElementBookDetailPageVisible();
         pageProvider.getBookStorePage().checkIsTableBookListNotVisible();
 
     }

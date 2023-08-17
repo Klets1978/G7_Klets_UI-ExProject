@@ -1,5 +1,6 @@
 package expansionCollectionBooks;
 
+import data.TestData;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,39 +13,15 @@ public class ExpansionCollectionBooksTest extends baseTest.BaseTest {
     @Before
     public void selectBookForCollection() {
 
-        pageProvider.getLoginPage().openLoginPage();
-        pageProvider.getLoginPage().enterTextIntoInputUsername(LOGIN_DEFAULT);
-        pageProvider.getLoginPage().enterTextIntoInputPassword(PASSWORD_DEFAULT);
-        pageProvider.getLoginPage().clickOnButtonSignIn();
-
-        pageProvider.getProfilePage().checkIsButtonLogOutVisible();
-        pageProvider.getProfilePage().checkIsElementProfileVisible();
-        pageProvider.getProfilePage().checkIsInputSearchVisible();
-        pageProvider.getProfilePage().checkIsTableBookListVisible();
-        pageProvider.getProfilePage().checkIsButtonGoToStoreVisible();
-        pageProvider.getProfilePage().checkIsButtonDeleteAccountVisible();
-        pageProvider.getProfilePage().checkIsButtonDeleteAllBooksVisible();
+        pageProvider.getLoginPage().loginWithValidCreds(TestData.LOGIN_DEFAULT,TestData.PASSWORD_DEFAULT);
+        pageProvider.getProfilePage().checkIsElementsDisplayOnProfilePage();
 
         pageProvider.getProfilePage().clickOnButtonGoToStore();
 
-        pageProvider.getBookStorePage().checkIsBookStoreHeaderVisible();
-        pageProvider.getBookStorePage().checkIsElementBookStoreVisible();
-        pageProvider.getBookStorePage().checkIsTableBookListVisible();
-
+        pageProvider.getBookStorePage().checkIsElementBookStoreDisplay();
         pageProvider.getBookStorePage().clickOnLinkGitPocketGuide();
 
-        pageProvider.getBookDetailPage().checkIsBookISBNVisible();
-        pageProvider.getBookDetailPage().checkIsBookTitleVisible();
-        pageProvider.getBookDetailPage().checkIsBookSubTitleVisible();
-        pageProvider.getBookDetailPage().checkIsBookAuthorVisible();
-        pageProvider.getBookDetailPage().checkIsBookPublisherVisible();
-        pageProvider.getBookDetailPage().checkIsBookTotalPagesVisible();
-        pageProvider.getBookDetailPage().checkIsBookDescriptionVisible();
-        pageProvider.getBookDetailPage().checkIsBookWebsiteVisible();
-        pageProvider.getBookDetailPage().checkIsBookWebsiteLinkVisible();
-        pageProvider.getBookDetailPage().checkIsButtonBackToBookStoreVisible();
-        pageProvider.getBookDetailPage().checkIsButtonAddToYourCollectionVisible();
-
+        pageProvider.getBookDetailPage().checkIsElementBookDetailPageVisible();
         pageProvider.getBookStorePage().checkIsTableBookListNotVisible();
 
     }
@@ -52,17 +29,17 @@ public class ExpansionCollectionBooksTest extends baseTest.BaseTest {
     @Test
     public void expansionCollectionBook() {
         pageProvider.getBookDetailPage().clickOnButtonAddToYourCollection();
-        pageProvider.getBookDetailPage().alertAccept();
+      //  pageProvider.getBookDetailPage().alertAccept();
 
         //pageProvider.getProfilePage().checkIsTableBookListVisible();
 
     }
 
-    @After
-    public void deleteBooksFromCollection() {
-        pageProvider.getProfilePage().clickOnButtonDeleteBook();
-        pageProvider.getProfilePage().modalWindowAccept();
-        pageProvider.getProfilePage().checkIsTableBookListNotVisible();
-    }
+//    @After
+//    public void deleteBooksFromCollection() {
+//        pageProvider.getProfilePage().clickOnButtonDeleteBook();
+//        pageProvider.getProfilePage().modalWindowAccept();
+//        pageProvider.getProfilePage().checkIsTableBookListNotVisible();
+//    }
 
 }

@@ -41,4 +41,11 @@ public class BookStorePage extends ParentPage {
     public void checkIsTableBookListNotVisible() {
         checkIsElementNotDisplayed(tableBookList);
     }
+
+    public void checkIsElementBookStoreDisplay() {
+        checkIsBookStoreHeaderVisible();
+        checkIsElementBookStoreVisible();
+        checkIsTableBookListVisible();
+
+    }
 }

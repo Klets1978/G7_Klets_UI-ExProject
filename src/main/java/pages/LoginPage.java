@@ -34,6 +34,7 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterTextIntoInputUsername(String username) {
+
         enterTextIntoInput(inputUsername, username);
     }
 
@@ -90,6 +91,13 @@ public class LoginPage extends ParentPage {
 
     public void checkIsButtonSignInVisible() {
         checkIsElementVisible(buttonSignIn);
+    }
+
+    public void loginWithValidCreds(String username, String password) {
+        openLoginPage();
+        enterTextIntoInputUsername(username);
+        enterTextIntoInputPassword(password);
+        clickOnButtonSignIn();
     }
 }
 
