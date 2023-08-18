@@ -34,7 +34,6 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterTextIntoInputUsername(String username) {
-
         enterTextIntoInput(inputUsername, username);
     }
 

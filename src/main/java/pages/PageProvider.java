@@ -1,12 +1,17 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import pages.elements.ModalDialog;
 
 public class PageProvider {
     WebDriver webDriver;
 
     public PageProvider(WebDriver webDriver) {
         this.webDriver = webDriver;
+    }
+
+    public static ModalDialog getModalDialog(WebDriver webDriver) {
+        return new ModalDialog(webDriver);
     }
 
     public LoginPage getLoginPage() {

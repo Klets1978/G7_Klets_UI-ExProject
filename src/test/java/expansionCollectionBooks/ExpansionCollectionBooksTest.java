@@ -5,15 +5,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static data.TestData.LOGIN_DEFAULT;
-import static data.TestData.PASSWORD_DEFAULT;
-
 public class ExpansionCollectionBooksTest extends baseTest.BaseTest {
 
     @Before
     public void selectBookForCollection() {
 
-        pageProvider.getLoginPage().loginWithValidCreds(TestData.LOGIN_DEFAULT,TestData.PASSWORD_DEFAULT);
+        pageProvider.getLoginPage().loginWithValidCreds(TestData.LOGIN_DEFAULT, TestData.PASSWORD_DEFAULT);
         pageProvider.getProfilePage().checkIsElementsDisplayOnProfilePage();
 
         pageProvider.getProfilePage().clickOnButtonGoToStore();
@@ -29,17 +26,21 @@ public class ExpansionCollectionBooksTest extends baseTest.BaseTest {
     @Test
     public void expansionCollectionBook() {
         pageProvider.getBookDetailPage().clickOnButtonAddToYourCollection();
-      //  pageProvider.getBookDetailPage().alertAccept();
+        pageProvider.getBookDetailPage().alertAccept();
+        pageProvider.getBookDetailPage().clickOnButtonProfile();
 
-        //pageProvider.getProfilePage().checkIsTableBookListVisible();
+        pageProvider.getProfilePage().checkIsLinkVisible();
 
+        pageProvider.getBookDetailPage().checkIsButtonAddToYourCollectionNotVisible();
     }
 
-//    @After
-//    public void deleteBooksFromCollection() {
-//        pageProvider.getProfilePage().clickOnButtonDeleteBook();
-//        pageProvider.getProfilePage().modalWindowAccept();
-//        pageProvider.getProfilePage().checkIsTableBookListNotVisible();
-//    }
+    @After
+    public void deleteBooksFromCollection() {
+        pageProvider.getProfilePage().clickOnButtonDeleteAllBook();
+        pageProvider.getProfilePage().checkIsModalDialogVisible();
+        pageProvider.getProfilePage().acceptModalDialog();
+        pageProvider.getProfilePage().alertAccept();
+        pageProvider.getProfilePage().checkIsLinkNotVisible();
+    }
 
 }

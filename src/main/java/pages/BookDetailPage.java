@@ -43,6 +43,9 @@ public class BookDetailPage extends ParentPage {
     @FindBy(xpath = "//button[@id='addNewRecordButton' and text()='Add To Your Collection']")
     private WebElement buttonAddToYourCollection;
 
+    @FindBy(xpath = "//div[@class=\"element-list collapse show\"]//li[@class=\"btn btn-light \" and @id=\"item-3\"]")
+    private WebElement buttonProfile;
+
     public void checkIsBookISBNVisible() {
         checkIsElementDisplayed(bookISBN);
     }
@@ -93,19 +96,14 @@ public class BookDetailPage extends ParentPage {
 
 
     public void clickOnButtonAddToYourCollection() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        hoverOnElement(buttonAddToYourCollection);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        clickOnElementByJS(buttonAddToYourCollection);  //click on button by JS
+        hoverAndClickOnElement(buttonAddToYourCollection);
     }
+
+    public void clickOnButtonProfile() {
+        scrollToElement(buttonProfile);
+        clickOnElement(buttonProfile);
+    }
+
 
     public void checkIsElementBookDetailPageVisible() {
         checkIsElementDisplayed(bookISBN);
@@ -121,4 +119,7 @@ public class BookDetailPage extends ParentPage {
         checkIsElementDisplayed(buttonAddToYourCollection);
     }
 
+    public void checkIsButtonAddToYourCollectionNotVisible() {
+        checkIsElementNotDisplayed(buttonAddToYourCollection);
+    }
 }

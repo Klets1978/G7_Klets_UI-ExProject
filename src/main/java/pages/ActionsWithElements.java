@@ -42,7 +42,7 @@ public class ActionsWithElements {
             String elementName = getElementName(element);
             webDriverWait10.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
-            logger.info("Element was clicked");
+            logger.info("Element was clicked" + elementName);
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
@@ -50,53 +50,58 @@ public class ActionsWithElements {
 
     public boolean isElementDisplayed(WebElement element) {
         try {
+            String elementName = getElementName(element);
             boolean state = element.isDisplayed();
             if (state) {
-                logger.info("Element is displayed");
+                logger.info("Element " + elementName + " is displayed");
             } else {
-                logger.info("Element is not displayed");
+                logger.info("Element " + elementName + " is not displayed");
             }
             return state;
         } catch (Exception e) {
-            logger.info("Element is not displayed");
+            String elementName = getElementName(element);
+            logger.info("Element " + elementName + " is not displayed");
             return false;
         }
     }
 
     public void checkIsElementDisplayed(WebElement element) {
-        Assert.assertTrue("Element is not displayed", isElementDisplayed(element));
+        String elementName = getElementName(element);
+        Assert.assertTrue("Element " + elementName + " is not displayed", isElementDisplayed(element));
     }
 
     public void checkIsElementNotDisplayed(WebElement element) {
-        Assert.assertFalse("Element is displayed", isElementDisplayed(element));
+        String elementName = getElementName(element);
+        Assert.assertFalse("Element " + elementName + " is displayed", isElementDisplayed(element));
     }
 
-    public void hoverOnElement(WebElement element) {
+    public void hoverAndClickOnElement(WebElement element) {
         try {
+            String elementName = getElementName(element);
             Actions action = new Actions(webDriver);
-            action.moveToElement(element).build().perform();
-            logger.info("Element was hovered");
+            action.moveToElement(element).click().build().perform();
+            logger.info("Element " + elementName + " was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
 
-    public void clickOnElementByJS(WebElement element) {
-        try {
-            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
-            javascriptExecutor.executeScript("arguments[0].click();", element);
-            logger.info("Element was clicked");
-        } catch (Exception e) {
-            printErrorAndStopTest(e);
-        }
-    }
+//    public void clickOnElementByJS(WebElement element) {
+//        try {
+//            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
+//            javascriptExecutor.executeScript("arguments[0].click();", element);
+//            logger.info("Element " + getElementName(element) + " was clicked");
+//        } catch (Exception e) {
+//            printErrorAndStopTest(e);
+//        }
+//    }
 
     public void alertAccept() {
+        webDriverWait10.until(ExpectedConditions.alertIsPresent());
         Alert alert = webDriver.switchTo().alert();
         String alertText = alert.getText();
         logger.info(alertText);
         alert.accept();
-        webDriver.quit();
     }
 
     private String getElementName(WebElement element) {
@@ -107,15 +112,21 @@ public class ActionsWithElements {
         }
     }
 
+    public void scrollToElement(WebElement element) {
+        try {
+            String elementName = getElementName(element);
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(true);", element);
+            logger.info("Page was scrolled to" + elementName);
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
     private void printErrorAndStopTest(Exception e) {
         logger.info("Can not work with element " + e);
         Assert.fail("Can not work with element " + e);
     }
 
-
-//    public void modalWindowAccept() {
-//
-//    }
 }
 
 

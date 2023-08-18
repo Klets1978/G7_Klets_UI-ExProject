@@ -27,6 +27,9 @@ public class ProfilePage extends ParentPage {
     @FindBy(xpath = "//div[@class='profile-wrapper']//div[@class='ReactTable -striped -highlight']")
     private WebElement tableBookList;
 
+    @FindBy(xpath = "//span[@id='see-book-Git Pocket Guide']//a")
+    private WebElement linkGitPocketGuide;
+
     @FindBy(xpath = "//button[@id='gotoStore']")
     private WebElement buttonGoToStore;
 
@@ -81,6 +84,10 @@ public class ProfilePage extends ParentPage {
         checkIsElementDisplayed(buttonDeleteAllBooks);
     }
 
+    public void checkIsLinkVisible() {
+        checkIsElementDisplayed(linkGitPocketGuide);
+    }
+
     public void clickOnButtonLogOut() {
         clickOnElement(buttonLogOut);
     }
@@ -123,9 +130,10 @@ public class ProfilePage extends ParentPage {
         clickOnElement(buttonGoToStore);
     }
 
-    public void clickOnButtonDeleteBook() {
-        clickOnElement(buttonDeleteAllBooks);
+    public void clickOnButtonDeleteAllBook() {
+        hoverAndClickOnElement(buttonDeleteAllBooks);
     }
+
 
     public void checkIsElementsDisplayOnProfilePage() {
         checkIsProfileHeaderVisible();
@@ -138,5 +146,17 @@ public class ProfilePage extends ParentPage {
         checkIsButtonGoToStoreVisible();
         checkIsButtonDeleteAccountVisible();
         checkIsButtonDeleteAllBooksVisible();
+    }
+
+    public void checkIsLinkNotVisible() {
+        checkIsElementNotDisplayed(linkGitPocketGuide);
+    }
+
+    public void acceptModalDialog() {
+        PageProvider.getModalDialog(webDriver).clickOnButtonOk();
+    }
+
+    public void checkIsModalDialogVisible() {
+        PageProvider.getModalDialog(webDriver).checkIsModalDialogVisible();
     }
 }

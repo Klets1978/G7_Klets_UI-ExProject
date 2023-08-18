@@ -37,5 +37,8 @@ public class RedirectionTest extends baseTest.BaseTest {
         pageProvider.getBookStorePage().checkIsTableBookListNotVisible();
 
     }
+
+
 }
+
 

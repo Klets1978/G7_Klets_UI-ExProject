@@ -21,6 +21,11 @@ Profile.button.GoToBookStore = //button[@id='gotoStore']
 Profile.button.DeleteAccount = //button[@id='submit' and text()='Delete Account']
 Profile.button.DeleteAllBooks = //div[@class='text-right button di']//button[@id='submit' and text()='Delete All Books']
 Profile.button.DeleteBook = //div//span[@id="delete-record-undefined"]
+Profile.link.TitleBook = //span[@id='see-book-Git Pocket Guide']//a
+Profile.element.modalDialog = //div[@class="modal-content"]
+Profile.button.modalDialogClose = //button[@class="close"]
+Profile.button.closeModalOk = //button[@id="closeSmallModal-ok"]
+Profile.button.closeModalCancel = //button[@id="closeSmallModal-cancel"]
 
 #Book Store
 BookStore.input.searchBox = //input[@id='searchBox']
@@ -42,6 +47,7 @@ BookDetails.label.Website = //div[@id='website-wrapper']//label[@class="form-lab
 BookDetails.label.LinkOnTheWebsite = //div[@id="website-wrapper"]//label[@class="form-label" and @id="userName-value"]
 BookDetails.button.backToBookStore = //button[@id='addNewRecordButton' and text()='Back To Book Store']
 BookDetails.button.addToCollection = //button[@id='addNewRecordButton' and text()='Add To Your Collection']
+BookDetails.element.Profile = //div[@class="element-list collapse show"]//li[@class="btn btn-light " and @id="item-3"]
 
 
 
